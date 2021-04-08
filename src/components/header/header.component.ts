@@ -1,4 +1,4 @@
-import { Component } from "../helpers/component";
+import { Component } from "../../helpers/component";
 import './style.scss'
 export class Header extends Component {
 
