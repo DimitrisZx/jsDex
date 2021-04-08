@@ -1,0 +1,9 @@
+{
+  "arrowParens": "always",
+  "bracketSpacing": true,
+  "indent": 2,
+  "printWidth": 100,
+  "singleQuote": true,
+  "semin": true,
+  "trailingComma": "all"
+}
