@@ -1,3 +1,3 @@
 export interface IComponent {
-  render: () => string;
+  render: () => HTMLElement | string;
 }
