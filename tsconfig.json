@@ -10,7 +10,7 @@
     "jsx": "react",
     "allowJs": true,
     "paths": {
-      "*":[]
+
     }
   },
   "exclude": ["spec"]
