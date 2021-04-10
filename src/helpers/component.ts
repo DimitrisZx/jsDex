@@ -1,6 +1,13 @@
 import { IComponent } from "../interfaces/component.interface";
+import { Store } from "../store/store";
 
-export abstract class Component implements IComponent {
+export class Component implements IComponent {
 
-  abstract render(): string
+  componentName: string;
+  render(): HTMLElement | string {return ''}
+  attachListeners():void {return;};
+  
+  constructor(
+    protected store?: Store
+  ){}
 }
