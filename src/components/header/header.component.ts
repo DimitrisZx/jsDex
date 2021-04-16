@@ -8,9 +8,9 @@ export class Header extends Component {
 
   render(): string {
     return (
-      `<header class="nav-bar nav">
-        <div>Pokedex</div>
-      </header>
+      `<ul class="nav">
+        <li class='nav-item'>Pokedex</li>
+      </ul>
     `);
   }
 }
