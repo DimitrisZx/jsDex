@@ -1,15 +1,8 @@
 import { Component } from "../helpers/component";
 import { PokedexService } from "../services/pokedex.service";
 
-export const store = {
-  state: {
-    currentPokemon: {}
-  },
-};
-
-
 export class Store {
-  private state: {[key: string]: any};
+  private state: AppState;
   private subscribers: Component[] = [];
   constructor(
     initState = {},

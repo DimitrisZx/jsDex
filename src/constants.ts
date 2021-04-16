@@ -1,1 +1,1 @@
-export const APP = '#app';
+export const ROOT_ELEMENT = '#app';

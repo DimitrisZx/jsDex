@@ -1,6 +1,6 @@
 import './styles.scss';
 import { Header } from './components/header/header.component';
-import { APP } from './constants';
+import { ROOT_ELEMENT } from './constants';
 import { Footer } from './components/footer/footer.component';
 import { Content } from './components/content/content.component';
 import { PokemonForm } from './components/pokemonForm/pokemonForm.component';
@@ -9,14 +9,16 @@ import { PokemonDisplay } from './components/pokemonDisplay/pokemonDisplay.compo
 
 
 class AppRenderer {
-  private appRef = document.querySelector(APP);
+  private appRef = document.querySelector(ROOT_ELEMENT);
   private store = new Store()
   private state: AppState = {
     currentPokemon: null,
     pokemonToSearchName: '',
     title: 'BeforeSet'
   }
-
+  constructor() {
+    document.body.insertAdjacentHTML('afterbegin', this.header.render())
+  }
 
   private header = new Header(); 
   private footer = new Footer(); 
