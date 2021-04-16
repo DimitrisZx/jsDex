@@ -4,7 +4,7 @@ import "./style.scss";
 
 const pkx = new PokedexService();
 async function getPokemon() {
-  console.log(await pkx.getPokemonByName('eevee'))
+  // console.log(await pkx.getPokemonByName('eevee'))
 }
 getPokemon()
 export class Content extends Component {
