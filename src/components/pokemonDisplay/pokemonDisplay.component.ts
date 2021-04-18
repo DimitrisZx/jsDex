@@ -1,3 +1,4 @@
+import { ROOT_ELEMENT } from "../../constants";
 import { Component } from "../../helpers/component";
 import { DOMHelper as d} from "../../helpers/domHelper";
 import { capitalize } from "../../helpers/helperFunctions";
@@ -29,12 +30,14 @@ export class PokemonDisplay extends Component implements IInformable {
   }
 
   render(): HTMLElement | string {
-    const parentDiv = d.createElement('div', {class: 'container'})
-    const title = d.createElement('div', {src: 'https://i.pinimg.com/564x/c5/f0/fa/c5f0fa5ac14327b8330fde1c621ffa8a.jpg',id: 'pokemon-name', textContent: 'Search for a Pokemon'})
-    const pokemonImage = d.createElement('img', {alt: 'image of current pokemon', id: 'pokemon-image'})
+    const parentDiv = d.createElement('div', {class: 'card'})
+    const title = d.createElement('div', {class:"card-title" ,id: 'pokemon-name', textContent: 'Search for a Pokemon'})
+    const cardBody = d.createElement('div', {class: 'card-body'});
+    const pokemonImage = d.createElement('img', {class:'', height:"96", width:'96', src: 'https://i.pinimg.com/564x/c5/f0/fa/c5f0fa5ac14327b8330fde1c621ffa8a.jpg', alt: 'image of current pokemon', id: 'pokemon-image'})
     const evolutions = d.createElement('ul', {id: 'evolutions'});
-    const finalElement = d.appendChildren(parentDiv, title, pokemonImage, evolutions)
-    document.body.appendChild(finalElement)
+    
+    const finalElement = d.appendChildren(parentDiv, d.appendChildren(cardBody, title, pokemonImage, evolutions))
+    document.querySelector(ROOT_ELEMENT).appendChild(finalElement)
     return '';
   }
 }
