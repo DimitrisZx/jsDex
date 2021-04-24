@@ -17,7 +17,7 @@ type PokemonRecord = {
     moves: Move[];
     name: string;
     order: number;
-    past_types: any[];
+    past_types: Type[];
     species: Species;
     sprites: Sprites;
     stats: Stat[];
@@ -208,25 +208,25 @@ interface GenerationIv {
 
 interface Animated {
     back_default: string;
-    back_female?: any;
+    back_female?: string;
     back_shiny: string;
-    back_shiny_female?: any;
+    back_shiny_female?: string;
     front_default: string;
-    front_female?: any;
+    front_female?: string;
     front_shiny: string;
-    front_shiny_female?: any;
+    front_shiny_female?: string;
 }
 
 interface BlackWhite {
     animated: Animated;
     back_default: string;
-    back_female?: any;
+    back_female?: string;
     back_shiny: string;
-    back_shiny_female?: any;
+    back_shiny_female?: string;
     front_default: string;
-    front_female?: any;
+    front_female?: string;
     front_shiny: string;
-    front_shiny_female?: any;
+    front_shiny_female?: string;
 }
 
 interface GenerationV {
@@ -235,16 +235,16 @@ interface GenerationV {
 
 interface OmegarubyAlphasapphire {
     front_default: string;
-    front_female?: any;
+    front_female?: string;
     front_shiny: string;
-    front_shiny_female?: any;
+    front_shiny_female?: string;
 }
 
 interface XY {
     front_default: string;
-    front_female?: any;
+    front_female?: string;
     front_shiny: string;
-    front_shiny_female?: any;
+    front_shiny_female?: string;
 }
 
 interface GenerationVi {
@@ -254,14 +254,14 @@ interface GenerationVi {
 
 interface Icons {
     front_default: string;
-    front_female?: any;
+    front_female?: string;
 }
 
 interface UltraSunUltraMoon {
     front_default: string;
-    front_female?: any;
+    front_female?: string;
     front_shiny: string;
-    front_shiny_female?: any;
+    front_shiny_female?: string;
 }
 
 interface GenerationVii {
@@ -271,7 +271,7 @@ interface GenerationVii {
 
 interface Icons2 {
     front_default: string;
-    front_female?: any;
+    front_female?: string;
 }
 
 interface GenerationViii {
@@ -291,13 +291,13 @@ interface Versions {
 
 interface Sprites {
     'back_default': string;
-    'back_female'?: any;
+    'back_female'?: string;
     'back_shiny': string;
-    'back_shiny_female'?: any;
+    'back_shiny_female'?: string;
     'front_default': string;
-    'front_female'?: any;
+    'front_female'?: string;
     'front_shiny': string;
-    'front_shiny_female'?: any;
+    'front_shiny_female'?: string;
     other: Other;
     versions: Versions;
 }
