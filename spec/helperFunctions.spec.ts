@@ -1,7 +1,7 @@
 import { capitalize } from "../src/helpers/helperFunctions"
 
 
-describe('test suite for helper functions', () => {
+describe('Test Suite for helper functions', () => {
   
   test('capitalize capitalizes strings', () => {
     expect(capitalize('bulbasaur')).toBe('Bulbasaur');

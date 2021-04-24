@@ -1,5 +1,6 @@
 export class DOMHelper {
   static createElement(type: string, attributes?: HTMLAttributes):HTMLElement {
+    if (type === '') return this.createElement('div');
     const newElement = document.createElement(type);
     for (const attribute in attributes) {
       if (attribute === 'textContent') {

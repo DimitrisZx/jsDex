@@ -7,15 +7,16 @@ import { IInformable } from "../../interfaces/informable.interface";
 import { Store } from "../../store/store";
 
 export class PokemonDisplay extends Component implements IInformable {
-  componentName = 'PokemonDisplay';
+  public componentName = 'PokemonDisplay';
   public subscriptionBinder;
-  pokemonTitle = (): HTMLElement => document.querySelector('#pokemon-name')
+  public pokemonTitle = (): HTMLElement => document.querySelector('#pokemon-name')
+
   constructor(store: Store) {
     super(store);
     this.subscriptionBinder = this.store.subscribe(this);
   }
 
-  inform(state: any): void {
+  inform(state: AppState): void {
     console.log('I have been informed! ' + this.componentName)
     console.log('New State', state)
     this.pokemonTitle().textContent = capitalize(state.currentPokemon.name); 

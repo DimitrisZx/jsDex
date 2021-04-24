@@ -1,3 +1,3 @@
 export interface IInformable {
-  inform: (message: any) => void
+  inform: (event: any) => void
 }
