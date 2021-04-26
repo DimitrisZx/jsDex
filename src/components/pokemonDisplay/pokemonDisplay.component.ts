@@ -11,8 +11,8 @@ export class PokemonDisplay extends Component implements IInformable {
   public subscriptionBinder;
   public pokemonTitle = (): HTMLElement => document.querySelector('#pokemon-name')
 
-  constructor(store: Store) {
-    super(store);
+  constructor(componentName: string ,store: Store) {
+    super(componentName, store);
     this.subscriptionBinder = this.store.subscribe(this);
   }
 

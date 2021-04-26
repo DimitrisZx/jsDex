@@ -7,55 +7,55 @@ import { PokemonForm } from './components/pokemonForm/pokemonForm.component';
 import { Store } from './store/store';
 import { PokemonDisplay } from './components/pokemonDisplay/pokemonDisplay.component';
 
-
 class AppRenderer {
   private appRef = document.querySelector(ROOT_ELEMENT);
-  private store = new Store()
+  private store = new Store();
   private state: AppState = {
     currentPokemon: null,
     pokemonToSearchName: '',
-    title: 'BeforeSet'
-  }
+    title: 'BeforeSet',
+  };
   constructor() {
-    document.body.insertAdjacentHTML('afterbegin', this.header.render())
+    document.body.insertAdjacentHTML('afterbegin', this.header.render());
   }
 
-  private header = new Header(); 
-  private footer = new Footer(); 
-  private content = new Content();
-  private pokeForm = new PokemonForm(this.store);
-  private pokeDisplay = new PokemonDisplay(this.store);
+  private header = new Header();
+  private footer = new Footer('Footer');
+  private content = new Content('Content');
+  private pokeForm = new PokemonForm('PokemonForm', this.store);
+  private pokeDisplay = new PokemonDisplay('PokemonDisplay', this.store);
 
-  setState(payload: updatePackage):void {
-    this.state = {...this.state, ...payload}
+  setState(payload: updatePackage): void {
+    this.state = { ...this.state, ...payload };
     this.renderApp();
   }
 
   setTitle() {
-    this.setState({title: 'AfterSet'})
+    this.setState({ title: 'AfterSet' });
   }
 
   attachListeners(elementIdsList: string[]) {
-    elementIdsList.forEach(elementId => {
-      document
-        .querySelector(`#${elementId}`)
-        .addEventListener('click', () => this.setTitle())
+    elementIdsList.forEach((elementId) => {
+      document.querySelector(`#${elementId}`).addEventListener('click', () => this.setTitle());
     });
   }
 
-  resetView():void { this.appRef.innerHTML = ''; }
+  resetView(): void {
+    this.appRef.innerHTML = '';
+  }
 
   renderApp() {
     this.resetView();
-    this.appRef.insertAdjacentHTML('beforeend', 
+    this.appRef.insertAdjacentHTML(
+      'beforeend',
       `
         ${this.pokeForm.render()}
         ${this.pokeDisplay.render()}
-      `)
+      `,
+    );
     // this.attachListeners(['button'])
   }
 }
 
 const app = new AppRenderer();
 app.renderApp();
-

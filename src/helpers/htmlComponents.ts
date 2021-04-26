@@ -1,5 +1,5 @@
 export const ImageElement = (props: any): HTMLElement => {
-  const { src: imageSrc, id, className, children } = props;
+  const { src: imageSrc, id, className } = props;
   const element = document.createElement('img');
   element.src = imageSrc;
   element.id = id || '';
