@@ -1,15 +1,14 @@
 import './styles.scss';
 import { Header } from './components/header/header.component';
-import { ROOT_ELEMENT } from './constants';
-import { Footer } from './components/footer/footer.component';
-import { Content } from './components/content/content.component';
+import { QUERY_FORM, ROOT_ELEMENT } from './constants';
 import { PokemonForm } from './components/pokemonForm/pokemonForm.component';
 import { Store } from './store/store';
 import { PokemonDisplay } from './components/pokemonDisplay/pokemonDisplay.component';
+import { DOMHelper as d } from './helpers/domHelper';
 
 class AppRenderer {
   private appRef = document.querySelector(ROOT_ELEMENT);
-  private store = new Store();
+  private store = new Store({});
   private state: AppState = {
     currentPokemon: null,
     pokemonToSearchName: '',
@@ -20,8 +19,6 @@ class AppRenderer {
   }
 
   private header = new Header();
-  private footer = new Footer('Footer');
-  private content = new Content('Content');
   private pokeForm = new PokemonForm('PokemonForm', this.store);
   private pokeDisplay = new PokemonDisplay('PokemonDisplay', this.store);
 
@@ -45,14 +42,20 @@ class AppRenderer {
   }
 
   renderApp() {
-    this.resetView();
-    this.appRef.insertAdjacentHTML(
-      'beforeend',
-      `
-        ${this.pokeForm.render()}
-        ${this.pokeDisplay.render()}
-      `,
+    // this.resetView();
+    // this.appRef.insertAdjacentHTML(
+    //   'beforeend',
+    //   `<div>
+    //     ${this.pokeForm.render()}
+    //     ${this.pokeDisplay.render()}
+    //   </div>
+    //   `,
+    // );
+    this.appRef.appendChild(
+      d.createElement('div', { id: 'query-form', class: 'visible', 'data-view-active': true }),
     );
+    this.pokeForm.render();
+    this.pokeDisplay.render();
     // this.attachListeners(['button'])
   }
 }
